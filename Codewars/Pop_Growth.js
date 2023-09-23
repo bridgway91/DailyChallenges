@@ -27,11 +27,9 @@
 function nbYear(p0, percent, aug, p) { // just another math focused challenge, but the site says this is wrong for nbYear(1000,2,50,1214), trying to say it should be 4 years when its actually 3... im right, theyre wrong
     let pop = p0;
     let years = 0;
-    console.log(pop, percent, aug, p);
     while (pop < p) {
       pop = pop + (pop * (percent / 100)) + aug;
       years++;
-      console.log(`${pop} pop after ${years} years`);
     };
     return years;
   }
