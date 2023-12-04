@@ -55,3 +55,11 @@ function sortArray(array) {
     
    return array;
   }
+
+
+// ON RETURNING...
+
+function sortArray(array) { // took a little bit just b/c i confused shift() with splice() >_>
+  let odds = array.filter(el=>el%2!=0).sort((a,b)=>a-b);
+  return array.map(el=> (el%2)!==0 ? odds.shift() : el);
+}
