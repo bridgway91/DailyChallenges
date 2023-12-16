@@ -14,10 +14,10 @@
 // titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 
 
-function titleCase(title, minorWords) { // NOT DONE, giving an error and idk why
+function titleCase(title, minorWords) { // DONE... did not real all instructions, apparently second parameter is optional, so need to check for it when assigning variables ('except')
     if (!title) return '';
     let splitTitle = title.toLowerCase().split(' ');
-    let except = minorWords.toLowerCase().split(' ');
+    let except = minorWords ? minorWords.toLowerCase().split(' ') : [''];
     for (let i=0; i<splitTitle.length; i++) {
       if (i == 0) {
         let lowfirst = splitTitle[i].split('');
