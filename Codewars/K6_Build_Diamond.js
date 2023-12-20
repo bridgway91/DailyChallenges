@@ -25,14 +25,31 @@
 // "  *\n ***\n*****\n ***\n  *\n"
 
 
-function diamond (n) { // NOT MY ANSWER, COULD NOT FIGURE OUT
-    if (n <= 0 || n % 2 === 0) return null
-    str = ''
-    for (let i = 0; i < n; i++) { 
-      let len = Math.abs((n-2*i-1)/2)
-      str += ' '.repeat(len)
-      str += '*'.repeat(n-2*len)
-      str += '\n'
-    }
-    return str
+function diamond(n){ // SECOND ATTEMPT, WORKS GREAT -- rather than trying to start from the top and having the sizes go up then back down, just started the construction in the middle and added layers in front and behind it
+    if (n < 1 || (n%2 == 0)) return null;
+    let arr = [];
+    for (let i=0; i*2<n; i++) {
+      if (i==0) {
+        arr.push('*'.repeat(n))
+      } else {
+        arr.push(' '.repeat(i)+'*'.repeat(n-2*i));
+        arr.unshift(' '.repeat(i)+'*'.repeat(n-2*i));
+      };
+    };
+    return arr.join('\n')+'\n';
   }
+
+
+// alternatively...
+
+function diamond (n) { // basically the successful version of what i was trying to do on first attempt
+  if (n <= 0 || n % 2 === 0) return null
+  str = ''
+  for (let i = 0; i < n; i++) { 
+    let len = Math.abs((n-2*i-1)/2)
+    str += ' '.repeat(len)
+    str += '*'.repeat(n-2*len)
+    str += '\n'
+  }
+  return str
+}
