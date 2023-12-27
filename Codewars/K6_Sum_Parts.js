@@ -62,3 +62,17 @@ function partsSums(ls) { // supposedly the fastest solution
     return res;
     
   }
+
+
+// ON RETURN
+
+function partsSums(ls) { // this manages to work, for w/e reason... stupid challenge
+    let res = []
+    let sum = ls.reduce((a,b)=>a+b,0)
+    ls.unshift(0);
+    for (let i=0;i<ls.length;i++) {
+      res.push(sum - ls[i])
+      sum -= ls[i]
+    }
+    return res
+  }
