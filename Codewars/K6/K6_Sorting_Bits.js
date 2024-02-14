@@ -23,3 +23,17 @@
 
 
 // MY SOLN DIDNT WORK FOR SOME FUCKING REASON, THE CONSOLE LOGS ALL CAME OUT OKAY, BUT THE RETURN DIDNT WANT TO FKING WORK PROPERLY, SO LEAVING THIS BLANK FOR NOW AND WILL REVISIT
+
+
+function sortByBit(arr) { // fully admit getting this soln from another, but did try and reason through it in comments below
+    return arr.sort((a,b) => a.toString(2).replace(/[0]/g,'') - b.toString(2).replace(/[0]/g,'') || a-b)
+    // toString(2) gives binary, replace gets rid of any 0s, so any nums with same amount of 1's are then equal
+    // meaning aBinary - bBinary = 0 aka dont switch, so then need to compare original numbers, hence "|| a-b" part
+  }
+
+
+// alternatively...
+
+function sortByBit(arr) {
+    arr.sort( (a,b) => a.toString(2).split`1`.length - b.toString(2).split`1`.length || a - b);
+  }
